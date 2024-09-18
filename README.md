@@ -3,6 +3,75 @@
 > [!NOTE]  
 > This is a cheat sheet on MongoDB (mostly notes-to-self). They are incomplete by default.
 
+## `mongosh` (MongoDB Shell)
+
+### Show all databases
+
+```sh
+show dbs
+```
+
+### Show all collections in the current database
+
+```sh
+show collections
+```
+
+### Query a collection
+
+```sh
+db.your_collection_name.find()
+```
+
+For example: 
+
+```sh
+testdb> db.ATTESTATIONS.find().pretty()
+[
+  {
+    _id: ObjectId('66e83d1756c90708d7e60a66'),
+    attestation_id: 'attest1-uuid',
+    user_id: 'user1-uuid',
+    attribute_id: 'attr1-uuid'
+  },
+  {
+    _id: ObjectId('66e83d1756c90708d7e60a67'),
+    attestation_id: 'attest2-uuid',
+    user_id: 'user2-uuid',
+    attribute_id: 'attr2-uuid'
+  }
+]
+```
+
+### Delete a collection
+
+```sh
+db.your_collection_name.drop()
+```
+
+For example: 
+
+```sh
+testdb> db.ATTESTATIONS.find().pretty()
+[
+  {
+    _id: ObjectId('66e83d1756c90708d7e60a66'),
+    attestation_id: 'attest1-uuid',
+    user_id: 'user1-uuid',
+    attribute_id: 'attr1-uuid'
+  },
+  {
+    _id: ObjectId('66e83d1756c90708d7e60a67'),
+    attestation_id: 'attest2-uuid',
+    user_id: 'user2-uuid',
+    attribute_id: 'attr2-uuid'
+  }
+]
+testdb> db.ATTESTATIONS.drop()
+true
+testdb> db.ATTESTATIONS.find().pretty()
+```
+
 ## FAQ
 
 ### Run MongoDB locally
